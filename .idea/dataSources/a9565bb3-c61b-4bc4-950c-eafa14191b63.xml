@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - TaskManager@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="taskmanager">
+      <Visible>1</Visible>
+    </schema>
+    <table id="3" parent="2" name="comment"/>
+    <table id="4" parent="2" name="person"/>
+    <table id="5" parent="2" name="second_task"/>
+    <table id="6" parent="2" name="task"/>
+    <column id="7" parent="3" name="Description">
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="8" parent="3" name="Task_Task_Id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="9" parent="3" name="Id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <index id="10" parent="3" name="Comment_Task">
+      <ColNames>Task_Task_Id</ColNames>
+    </index>
+    <key id="11" parent="3" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="12" parent="3" name="Comment_Task">
+      <ColNames>Task_Task_Id</ColNames>
+      <RefTableName>task</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>Task_Id</RefColNames>
+      <OnUpdate>restrict</OnUpdate>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="13" parent="4" name="Name">
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="14" parent="4" name="Email">
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="15" parent="4" name="Password">
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="16" parent="4" name="Id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <key id="17" parent="4" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="18" parent="5" name="Description">
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="5" name="Deadline">
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="20" parent="5" name="Id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="5" name="Task_Task_Id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="22" parent="5" name="Second_Task_Task">
+      <ColNames>Task_Task_Id</ColNames>
+    </index>
+    <key id="23" parent="5" name="PRIMARY">
+      <ColNames>Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="24" parent="5" name="Second_Task_Task">
+      <ColNames>Task_Task_Id</ColNames>
+      <RefTableName>task</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>Task_Id</RefColNames>
+      <OnUpdate>restrict</OnUpdate>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+    <column id="25" parent="6" name="Name">
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="6" name="Description">
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="27" parent="6" name="Deadline">
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="28" parent="6" name="Task_Id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="6" name="Person_Id">
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="6" name="Start_Date">
+      <DataType>date|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="6" name="Conditit">
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="32" parent="6" name="Task_Person">
+      <ColNames>Person_Id</ColNames>
+    </index>
+    <key id="33" parent="6" name="PRIMARY">
+      <ColNames>Task_Id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="34" parent="6" name="Task_Person">
+      <ColNames>Person_Id</ColNames>
+      <RefTableName>person</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>Id</RefColNames>
+      <OnUpdate>restrict</OnUpdate>
+      <OnDelete>restrict</OnDelete>
+    </foreign-key>
+  </database-model>
+</dataSource>
